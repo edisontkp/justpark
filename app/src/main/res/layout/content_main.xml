@@ -101,7 +101,7 @@
 
     <Button
         android:layout_marginTop="14dp"
-        android:id ="@+id/push_button"
+        android:id ="@+id/pay_button"
         android:textColor="#FFF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

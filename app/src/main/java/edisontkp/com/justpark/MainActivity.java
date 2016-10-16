@@ -1,11 +1,12 @@
 package edisontkp.com.justpark;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -13,17 +14,27 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.text.DateFormat;
+import com.google.gson.Gson;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.json.JSONObject;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+
+import cz.msebera.android.httpclient.entity.StringEntity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -32,6 +43,9 @@ public class MainActivity extends AppCompatActivity
     private TextView tv_car_park_duration_lbl;
     private TextView tv_car_park_fee;
     private TextView tvClock2;
+    private Button pay_button;
+    private int duration;
+    Gson gson;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +54,8 @@ public class MainActivity extends AppCompatActivity
         initializeVariables();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        gson = new Gson();
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -135,8 +151,17 @@ public class MainActivity extends AppCompatActivity
                 Calendar cal = Calendar.getInstance();
                 cal.add(Calendar.HOUR_OF_DAY, progress);
                 tvClock2.setText(new SimpleDateFormat("yyyy/MM/dd HH:mm:ss", Locale.US).format(cal.getTime()));
-
+                duration = progress;
 //                Toast.makeText(getApplicationContext(), "Stopped tracking seekbar", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        pay_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                paynow();
+
             }
         });
 
@@ -148,6 +173,7 @@ public class MainActivity extends AppCompatActivity
         tv_car_park_duration_lbl = (TextView) findViewById(R.id.tv_car_park_duration_lbl);
         tv_car_park_fee = (TextView)findViewById(R.id.tv_car_park_fee);
         tvClock2 = (TextView)findViewById(R.id.tvClock2);
+        pay_button = (Button)findViewById(R.id.pay_button);
     }
 
     @Override
@@ -202,4 +228,70 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+    public void paynow(){
+
+    }
+
+
+
+
+//      example json object
+
+//    JSONObject jsonParams = new JSONObject();
+//    jsonParams.put("notes", "Test api support");
+//    StringEntity entity = new StringEntity(jsonParams.toString());
+//    client.post(context, restApiUrl, entity, "application/json",
+//    responseHandler);
+
+//    public void paynow (){
+//
+//        final AsyncHttpClient client = new AsyncHttpClient();
+//        JSONObject jsonParams = new JSONObject();
+//        jsonParams.put("amount", );
+//        jsonParams.put("payee", );
+//        jsonParams.put("payer", );
+//        jsonParams.put("duration",duration);
+//        jsonParams.put("status","request");
+//
+//        StringEntity entity = new StringEntity(jsonParams.toString());
+//        client.setTimeout(10000);
+//
+//        client.post("http://justpark.azurewebsites.net/api/transactionsapi", entity, new AsyncHttpResponseHandler() {
+//
+//                    @Override
+//                    public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, byte[] responseBody) {
+//
+//                        accessModel =  gson.fromJson(new String(responseBody), AccessModel.class);
+//
+//
+////                        pd.dismiss();
+//                    }
+//
+//                    @Override
+//                    public void onStart() {
+//
+////                        pd = new ProgressDialog(Login.this);
+////                        pd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+////                        //pd.setIcon(R.drawable.newalert); // you can set your own icon here
+////                        pd.setTitle(R.string.title_please_wait);
+////                        pd.setMessage(getString(R.string.message_loading));
+////                        pd.setIndeterminate(false);
+////                        pd.setCancelable(false); // this will disable the back button
+////                        pd.show();
+//
+//                    }
+//
+//                    @Override
+//                    public void onFailure(int statusCode, cz.msebera.android.httpclient.Header[] headers, byte[] responseBody, Throwable error) {
+//                        // time out
+////                        pd.dismiss();
+//
+//                    }
+//                }
+//
+//        );
+//
+//    }
 }

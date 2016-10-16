@@ -6,4 +6,6 @@ package edisontkp.com.justpark.config;
 
 public class Constant {
 
+    public final String ApiUrl = "http://justpark.azurewebsites.net/api/transactionsapi";
+
 }

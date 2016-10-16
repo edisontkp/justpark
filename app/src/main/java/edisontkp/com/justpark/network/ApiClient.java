@@ -3,8 +3,9 @@ package edisontkp.com.justpark.network;
 /**
  * Created by edisontkp on 15/10/2016.
  */
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+
+import java.io.IOException;
+
 
 public class ApiClient {
 
@@ -23,7 +24,45 @@ public class ApiClient {
 //    }
 
 
-
+//
+//    private static GitApiInterface gitApiInterface ;
+//    private static String baseUrl = "https://api.github.com" ;
+//
+//    public static GitApiInterface getClient() {
+//        if (gitApiInterface == null) {
+//
+//            OkHttpClient okClient = new OkHttpClient();
+//            okClient.interceptors().add(new Interceptor() {
+//                @Override
+//                public Response intercept(Chain chain) throws IOException {
+//                    Response response = chain.proceed(chain.request());
+//                    return response;
+//                }
+//            });
+//
+//            Retrofit client = new Retrofit.Builder()
+//                    .baseUrl(baseUrl)
+//                    .addConverter(String.class, new ToStringConverter())
+//                    .client(okClient)
+//                    .addConverterFactory(GsonConverterFactory.create())
+//                    .build();
+//            gitApiInterface = client.create(GitApiInterface.class);
+//        }
+//        return gitApiInterface ;
+//    }
+//
+//    public interface GitApiInterface {
+//
+//        @Headers("User-Agent: Retrofit2.0Tutorial-App")
+//        @GET("/search/users")
+//        Call<GitResult> getUsersNamedTom(@Query("q") String name);
+//
+//        @POST("/user/create")
+//        Call<Item> createUser(@Body String name, @Body String email);
+//
+//        @PUT("/user/{id}/update")
+//        Call<Item> updateUser(@Path("id") String id , @Body Item user);
+//    }
 
 
 }
