@@ -4,19 +4,17 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
             android:title="Parking" />
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="History" />
+            android:title="History"
+            android:visible="false"/>
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Account" />
+            android:title="Account"
+            android:visible="false"/>
         <item
             android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
             android:title="Logout" />
     </group>
 

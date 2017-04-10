@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_sign"
     android:layout_width="match_parent"
@@ -8,6 +8,44 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     tools:context="edisontkp.com.justpark.SignActivity">
 
-</RelativeLayout>
+    <ImageView
+        android:id="@+id/gobike_logo"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:src="@drawable/parking"
+        android:layout_gravity="center"
+        android:layout_centerInParent="false"
+        />
+
+    <TextView
+        android:id="@+id/tv_car_number_plate_lbl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:gravity="center"
+        android:textSize="17dp"
+        android:text="Phone Number"/>
+
+    <EditText
+        android:id="@+id/phone_number"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round"
+        android:gravity="center"
+        android:hint="0123456789"
+        android:padding="8dp" />
+    <Button
+        android:layout_marginTop="14dp"
+        android:id ="@+id/sign_button"
+        android:textColor="#FFF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="SIGN IN"
+        android:background="@drawable/button_round"
+        android:padding="15dp"
+        />
+</LinearLayout>

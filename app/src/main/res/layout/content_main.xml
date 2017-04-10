@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
-        android:text="Car Park Location:"/>
+        android:text="Pay To:"/>
     <Spinner
         android:id="@+id/static_spinner"
         android:layout_width="fill_parent"
@@ -54,7 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:gravity="center"
-        android:max="10"/>
+        android:max="10" />
 
     <TextView
         android:id="@+id/tv_car_park_starting_time_lbl"
@@ -102,11 +102,11 @@
     <Button
         android:layout_marginTop="14dp"
         android:id ="@+id/pay_button"
-        android:textColor="#FFF"
+        android:textColor="#000"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="PAY"
+        android:text="PAY NOW"
         android:background="@drawable/button_round"
         android:padding="15dp"
         />

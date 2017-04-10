@@ -20,6 +20,7 @@
         app:srcCompat="@drawable/parking" />
 
     <TextView
+        android:id="@+id/tv_phone_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
@@ -30,6 +31,8 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="im@justpark.com" />
+        android:text="im@justpark.com"
+        android:visibility="invisible"
+        />
 
 </LinearLayout>
